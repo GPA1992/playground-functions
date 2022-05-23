@@ -1,7 +1,18 @@
 // Desafio 11
+function countRepeat(arr){
+let counts = {};
+(arr).forEach((count) => {
+  counts[count] = (counts[count] || 0) +1;
+});
+  
+const maxRepeat = Math.max(...Object.values(counts))
+
+return maxRepeat 
+}
+
+
 function generatePhoneNumber(numeros) {
-  
-  
+   
   for (let i= 0; i < 11; i++){
 
     if (numeros.length !== 11) {
@@ -12,7 +23,7 @@ function generatePhoneNumber(numeros) {
     } else if (Math.min(...numeros) < 0){
       return 'não é possível gerar um número de telefone com esses valores';
     } 
-    else if(numeros.filter(x => x === numeros.length) < 3 === true ){
+    else if (countRepeat(numeros) >= 3){
       return 'não é possível gerar um número de telefone com esses valores';
     }
      else {
@@ -21,6 +32,10 @@ function generatePhoneNumber(numeros) {
   } 
     
 }
+
+
+
+
 // Desafio 12
 function triangleCheck(lineA, lineB, lineC) {
 const somaLadoAb = Math.abs(lineA + lineB); 
